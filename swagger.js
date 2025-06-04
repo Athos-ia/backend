@@ -14,6 +14,7 @@ const options = {
       { name: 'Sales', description: 'Sales management endpoints' },
       { name: 'OS', description: 'Service order endpoints' },
       { name: 'Users', description: 'User management endpoints' },
+      { name: 'Dashboard', description: 'Dashboard statistics endpoints' },
     ],
     components: {
       securitySchemes: {
