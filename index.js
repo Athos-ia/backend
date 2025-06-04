@@ -1,0 +1,1 @@
+// Conteúdo simulado para index.js na pasta backend
