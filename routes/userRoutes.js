@@ -43,6 +43,10 @@ router.get('/', auth, permissoes('admin'), userController.getAll);
  *                 type: string
  *               role:
  *                 type: string
+ *                 enum:
+ *                   - admin
+ *                   - estoquista
+ *                   - vendedor
  *     responses:
  *       200:
  *         description: Created user
