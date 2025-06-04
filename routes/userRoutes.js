@@ -27,9 +27,7 @@ router.get('/', auth, permissoes('admin'), userController.getAll);
  * @swagger
  * /api/users:
  *   post:
- *     summary: Create a user (admin only)
- *     security:
- *       - bearerAuth: []
+ *     summary: Create a user
  *     requestBody:
  *       required: true
  *       content:
@@ -50,13 +48,9 @@ router.get('/', auth, permissoes('admin'), userController.getAll);
  *     responses:
  *       200:
  *         description: Created user
- *       401:
- *         description: Unauthorized
- *       403:
- *         description: Forbidden
  *       500:
  *         description: Server error
  */
-router.post('/', auth, permissoes('admin'), userController.create);
+router.post('/', userController.create);
 
 module.exports = router;
