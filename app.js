@@ -6,6 +6,7 @@ const clientRoutes = require('./routes/clientRoutes');
 const saleRoutes = require('./routes/saleRoutes');
 const osRoutes = require('./routes/osRoutes');
 const userRoutes = require('./routes/userRoutes');
+const dashboardRoutes = require('./routes/dashboardRoutes');
 const swaggerUi = require('swagger-ui-express');
 const swaggerSpec = require('./swagger');
 
@@ -22,5 +23,6 @@ app.use('/api/clients', clientRoutes);
 app.use('/api/sales', saleRoutes);
 app.use('/api/os', osRoutes);
 app.use('/api/users', userRoutes);
+app.use('/api/dashboard', dashboardRoutes);
 
 module.exports = app;
