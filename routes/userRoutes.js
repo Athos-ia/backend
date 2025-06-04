@@ -6,8 +6,17 @@ const permissoes = require('../middleware/permissoesMiddleware');
 
 /**
  * @swagger
+ * tags:
+ *   name: Users
+ *   description: User management endpoints
+ */
+
+/**
+ * @swagger
  * /api/users:
  *   get:
+ *     tags:
+ *       - Users
  *     summary: Retrieve all users (admin only)
  *     security:
  *       - bearerAuth: []
@@ -27,6 +36,8 @@ router.get('/', auth, permissoes('admin'), userController.getAll);
  * @swagger
  * /api/users:
  *   post:
+ *     tags:
+ *       - Users
  *     summary: Create a user
  *     requestBody:
  *       required: true

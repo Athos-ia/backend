@@ -5,8 +5,17 @@ const auth = require('../middleware/authMiddleware');
 
 /**
  * @swagger
+ * tags:
+ *   name: Products
+ *   description: Product management endpoints
+ */
+
+/**
+ * @swagger
  * /api/products:
  *   get:
+ *     tags:
+ *       - Products
  *     summary: Retrieve all products
  *     security:
  *       - bearerAuth: []
@@ -14,6 +23,8 @@ const auth = require('../middleware/authMiddleware');
  *       200:
  *         description: List of products
  *   post:
+ *     tags:
+ *       - Products
  *     summary: Create a product
  *     security:
  *       - bearerAuth: []

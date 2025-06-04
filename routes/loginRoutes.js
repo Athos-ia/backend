@@ -4,8 +4,17 @@ const authController = require('../controllers/authController');
 
 /**
  * @swagger
+ * tags:
+ *   name: Login
+ *   description: Authentication endpoints
+ */
+
+/**
+ * @swagger
  * /api/login:
  *   post:
+ *     tags:
+ *       - Login
  *     summary: Authenticate user and return a JWT token
  *     requestBody:
  *       required: true

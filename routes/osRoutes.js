@@ -5,8 +5,17 @@ const auth = require('../middleware/authMiddleware');
 
 /**
  * @swagger
+ * tags:
+ *   name: OS
+ *   description: Service order endpoints
+ */
+
+/**
+ * @swagger
  * /api/os:
  *   get:
+ *     tags:
+ *       - OS
  *     summary: Retrieve all service orders
  *     security:
  *       - bearerAuth: []
