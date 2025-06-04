@@ -29,4 +29,28 @@ const auth = require('../middleware/authMiddleware');
  */
 router.get('/', auth, osController.getAll);
 
+/**
+ * @swagger
+ * /api/os:
+ *   post:
+ *     tags:
+ *       - OS
+ *     summary: Create a service order
+ *     security:
+ *       - bearerAuth: []
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             properties:
+ *               description:
+ *                 type: string
+ *     responses:
+ *       200:
+ *         description: Created service order
+ */
+router.post('/', auth, osController.create);
+
 module.exports = router;
