@@ -5,8 +5,17 @@ const auth = require('../middleware/authMiddleware');
 
 /**
  * @swagger
+ * tags:
+ *   name: Sales
+ *   description: Sales management endpoints
+ */
+
+/**
+ * @swagger
  * /api/sales:
  *   get:
+ *     tags:
+ *       - Sales
  *     summary: Retrieve all sales
  *     security:
  *       - bearerAuth: []
