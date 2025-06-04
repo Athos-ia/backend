@@ -5,7 +5,7 @@ require('dotenv').config();
 exports.login = async (req, res) => {
   const { username, password } = req.body;
   try {
-    const [rows] = await pool.execute('SELECT * FROM users WHERE username = ? AND password = ?', [username, password]);
+    const { rows } = await pool.query('SELECT * FROM users WHERE username = $1 AND password = $2', [username, password]);
     if (rows.length === 0) {
       return res.status(401).json({ message: 'Invalid credentials' });
     }
