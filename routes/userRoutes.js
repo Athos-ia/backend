@@ -23,4 +23,36 @@ const permissoes = require('../middleware/permissoesMiddleware');
  */
 router.get('/', auth, permissoes('admin'), userController.getAll);
 
+/**
+ * @swagger
+ * /api/users:
+ *   post:
+ *     summary: Create a user (admin only)
+ *     security:
+ *       - bearerAuth: []
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             properties:
+ *               username:
+ *                 type: string
+ *               password:
+ *                 type: string
+ *               role:
+ *                 type: string
+ *     responses:
+ *       200:
+ *         description: Created user
+ *       401:
+ *         description: Unauthorized
+ *       403:
+ *         description: Forbidden
+ *       500:
+ *         description: Server error
+ */
+router.post('/', auth, permissoes('admin'), userController.create);
+
 module.exports = router;
