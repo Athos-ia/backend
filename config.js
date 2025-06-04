@@ -1,1 +1,0 @@
-// Conteúdo simulado para config.js na pasta backend
