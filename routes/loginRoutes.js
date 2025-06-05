@@ -15,7 +15,7 @@ const authController = require('../controllers/authController');
  *   post:
  *     tags:
  *       - Login
- *     summary: Authenticate user and return a JWT token
+ *     summary: Authenticate user and return JWT and refresh tokens
  *     requestBody:
  *       required: true
  *       content:
@@ -30,6 +30,15 @@ const authController = require('../controllers/authController');
  *     responses:
  *       200:
  *         description: Authentication successful
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 token:
+ *                   type: string
+ *                 refreshToken:
+ *                   type: string
  *       401:
  *         description: Invalid credentials
  *       500:
