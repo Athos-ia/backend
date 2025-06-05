@@ -17,3 +17,26 @@ exports.login = async (req, res) => {
     res.status(500).json({ message: err.message });
   }
 };
+
+exports.refreshToken = async (req, res) => {
+  const { refreshToken } = req.body;
+  if (!refreshToken) {
+    return res.status(400).json({ message: 'Refresh token required' });
+  }
+  try {
+    const decoded = jwt.verify(refreshToken, process.env.JWT_SECRET);
+    const token = jwt.sign(
+      { id: decoded.id, role: decoded.role },
+      process.env.JWT_SECRET,
+      { expiresIn: '1h' }
+    );
+    const newRefreshToken = jwt.sign(
+      { id: decoded.id, role: decoded.role },
+      process.env.JWT_SECRET,
+      { expiresIn: '7d' }
+    );
+    res.json({ token, refreshToken: newRefreshToken });
+  } catch (err) {
+    res.status(401).json({ message: 'Invalid refresh token' });
+  }
+};
