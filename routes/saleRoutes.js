@@ -29,4 +29,33 @@ const auth = require('../middleware/authMiddleware');
  */
 router.get('/', auth, saleController.getAll);
 
+/**
+ * @swagger
+ * /api/sales:
+ *   post:
+ *     tags:
+ *       - Sales
+ *     summary: Create a sale
+ *     security:
+ *       - bearerAuth: []
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             properties:
+ *               product_id:
+ *                 type: integer
+ *               quantity:
+ *                 type: integer
+ *               total:
+ *                 type: number
+ *                 format: float
+ *     responses:
+ *       200:
+ *         description: Created sale
+ */
+router.post('/', auth, saleController.create);
+
 module.exports = router;
